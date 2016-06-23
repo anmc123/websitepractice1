@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+
+      <% @books.each do || %>
+      <div class="col-md-3">
+        <div class="thumbnail">
+          <% unless book.categories.count == 0 %>
+            <%= link_to image_tag(book.categories.first.image.url), book %>
+          <% end %>
+            <div class="caption">
+              <h3><%= link_to book.title.truncate(70), book %></h3>
+                <p><%= book.description.truncate(100) %></p>
+            </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
